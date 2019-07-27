@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <!--&lt;!&ndash; Font Awesome &ndash;&gt;-->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">-->
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{{url_for('static',filename='css/mdb.min.css')}}" rel="stylesheet">
+    <!--&lt;!&ndash; Your custom styles (optional) &ndash;&gt;-->
+    <!--<link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar sticky-top navbar-expand-lg blue-gradient navbar-dark scrolling-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#"><strong>Bugfree</strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        {%if not login_flag %}
+                        <li class="nav-item">
+                            <a href="/login">
+                                <button type="button" class="btn btn-outline-light">Login</button></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/reg">
+                                <button type="button" class="btn btn-outline-light">Register</button></a>
+                        </li>
+                        {% endif %}
+                        {% if login_flag %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Dropdown
+                            </a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+
+
+
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/popper.js')}}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script>
+
+</body>
+
+</html>
