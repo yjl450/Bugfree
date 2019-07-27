@@ -1,8 +1,7 @@
 #!/user/bin/env/python3
 # -*- coding: utf-8 -*-
 # Author: Helium Liu
-# @Time: $ {
-# @Time: $ {DATE} $ {TIME}
+# @Time: 2019/07/26
 # Project: BugFree
 
 '''
@@ -15,46 +14,37 @@ import pymysql
 
 bp = Blueprint('index', __name__)
 
-@bp.route('/design/index')
-def navi():
-    """
-    :return: Navigation template
-    """
-    login_flag = False
-    title = 'Index template'
-    return render_template('index/init.html', login_flag = login_flag, title = title)
-
 @bp.route('/')
 def index():
     """
     :return: Index Page
     """
-    login_flag = True
-    title = 'Welcome to Bugfree'
+    login_flag = False
+    title = 'InfoMobile - Welcome'
     return render_template('index/index.html', login_flag = login_flag, title = title)
 
-@bp.route('/reg')
+@bp.route('/reg', methods=('GET', 'POST'))
 def reg():
     """
     :return: Registration Page
     """
     login_flag = False
-    title = 'Welcome to Bugfree'
+    title = 'InfoMobile - Register'
     return render_template('index/reg.html', login_flag = login_flag, title = title)
 
-@bp.route('/login')
+@bp.route('/login', methods=('GET', 'POST'))
 def login():
     """
     :return: Login Page
     """
     login_flag = False
-    title = 'Welcome to Bugfree'
+    title = 'InfoMobile - Sign In'
     return render_template('index/login.html', login_flag = login_flag, title = title)
 
-# @bp.errorhandler(404)
-# def page_not_found():
-#     """
-#     Deal with error code 404
-#     :return: redirect to index page
-#     """
-#     pass
+@bp.errorhandler(404)
+def page_not_found():
+    """
+    Deal with error code 404
+    :return: redirect to index page
+    """
+    pass

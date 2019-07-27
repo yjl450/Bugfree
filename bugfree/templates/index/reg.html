@@ -1,5 +1,92 @@
-{% extends "init.html" %}
+{% extends "index/init.html" %}
 
 {% block content %}
-<p>Hello</p>
+<h1 id="bold_title" class="text-center">Register</h1>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg">
+        {%if login_flag %}
+        {% else %}
+        <form class="md-form border border-light p-5" id="reg" onsubmit="regSubmit()">
+            <div class="md-form">
+                <input type="text" id="materialRegisterFormFirstName" class="form-control" name="user" required>
+                <label for="materialRegisterFormFirstName">User name</label>
+            </div>
+            <div class="md-form">
+                <input type="email" id="materialRegisterFormEmail" class="form-control" name="email" required>
+                <label for="materialRegisterFormEmail">E-mail</label>
+            </div>
+            <div class="md-form">
+                <input type="password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"
+                    id="pwd" pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$" required>
+                <label for="pwd">Password</label>
+            </div>
+            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                A valid password is an 8 to 16-bit combination of letters and numbers
+            </small>
+            <div class="md-form">
+                <input type="password" required id="confirm" class="form-control" onkeyup="return isEqual()"
+                    aria-describedby="materialRegisterFormPasswordHelpBlock"
+                    pattern="^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$">
+                <label for="confirm">Confirm Password</label>
+                <small id="notEqu" class="form-text text-danger mb-4" hidden>The passwords you entered are not
+                    consistent</small>
+            </div>
+            <input hidden id="real_pwd" name="pwd" value="">
+            <div class="md-form">
+                <select class="browser-default custom-select" id="select" name="question">
+                    <option value="" disabled selected>Choose your security question</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="md-form">
+                <label for="input">Answer</label>
+                <input type="text" id="input" class="form-control" placeholder="" name="answer">
+            </div>
+            <small id="helper" class="form-text text-muted mb-4">Your answer will be used when resetting your
+                password</small>
+            <br>
+            <button class="btn purple-gradient btn-info btn-block my-4" type="submit" onsubmit="return regSubmit()">Sign
+                Up</button>
+            <div class="text-center">
+                <p>Already have an account?
+                    <a href="/login">Sign In</a>
+                </p>
+            </div>
+        </form>
+
+        {% endif %}
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script>
+    function isEqual() {
+        var pwd1 = document.getElementById('pwd').value;
+        var pwd2 = document.getElementById('confirm').value;
+        if (pwd1 != pwd2) {
+            document.getElementById('notEqu').removeAttribute('hidden');
+            return false;
+        }
+        if (pwd1 == pwd2) {
+            document.getElementById('notEqu').hidden = 'hidden';
+            return true;
+        }
+        console.log(pwd1 != pwd2)
+    }
+    function regSubmit() {
+        if (isEqual() == false) {
+            console.log('false');
+            return false;
+        }
+        else {
+            console.log('hello');
+            var input_pwd = 'cdsnji' + document.getElementById('pwd').value + '1561d';
+            var hash = md5(input_pwd);
+            document.getElementById('real_pwd').value = hash;
+        }
+    }
+</script>
 {% endblock %}

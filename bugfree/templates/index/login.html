@@ -1,5 +1,63 @@
-{% extends "init.html" %}
+{% extends "index/init.html" %}
 
 {% block content %}
-<p>Hello</p>
+<h1 id="bold_title" class="text-center">Sign In</h1>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg">
+        {%if login_flag %}
+        {% else %}
+        <form class="md-form border border-light p-5" id="login" onsubmit="return loginSubmit()">
+            <div class="md-form">
+                <input type="email" id="email" name="email" class="form-control" required>
+                <label for="email" class="font-weight-light">Your email</label>
+            </div>
+            <div class="md-form">
+                <input type="password" id="pwd" class="form-control" required>
+                <label for="pwd" class="font-weight-light">Your password</label>
+            </div>
+            <input type="hidden" id="real_pwd" name="pwd" value="1">
+
+            <!-- The following is for Forget Password and Session-->
+            <!-- <div class="d-flex justify-content-between">
+            <div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                    <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                </div>
+            </div>
+            <div>
+                <a href="">Forgot password?</a>
+            </div>
+        </div> -->
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="text-danger">{{ message }}</p>
+            {% endfor %}
+            {% else %}
+            <br>
+            {% endif %}
+            {% endwith %}
+            <button class="btn purple-gradient btn-info btn-block my-4" type="submit">Sign in</button>
+            <div class="text-center">
+                <p>Not a member?
+                    <a href="/reg">Register</a>
+                </p>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script>
+    function loginSubmit() {
+        var input_pwd = 'cdsnji' + document.getElementById('pwd').value + '1561d';
+        var hash = md5(input_pwd);
+        document.getElementById('real_pwd').value = hash;
+        return true;
+    }
+</script>
 {% endblock %}

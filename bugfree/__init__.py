@@ -1,8 +1,7 @@
-# !/user/bin/env/python3
+#!/user/bin/env/python3
 # -*- coding: utf-8 -*-
 # Author: Helium Liu
-# @Time: $ {
-# @Time: $ {DATE} $ {TIME}
+# @Time: 2019/07/26
 # Project: BugFree
 
 import os
@@ -29,14 +28,16 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # # a simple page that says hello
-    # @app.route('/about')
-    # def index():
-    #     return render_template('basic.html')
+    # Register design blueprint
+    # Responsible for template development
+    from . import design
+    app.register_blueprint(design.bp)
 
     # Register index blueprint
     # Responsible for index page, registration, and login.
     from . import index
     app.register_blueprint(index.bp)
+
+
 
     return app

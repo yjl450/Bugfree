@@ -1,5 +1,58 @@
-{% extends "init.html" %}
+{% extends "index/init.html" %}
 
 {% block content %}
-<p>Hello</p>
+<!-- Card -->
+<div class="container text-center">
+    <div class="card card-cascade wider reverse text-center">
+
+        <!-- Card image -->
+        <div class="jumbotron card card-image z-depth-3"
+            style="background-image: url({{url_for('static',filename='img/hero.jpg')}});" id="jumb">
+            <div class="text-white text-center py-5 px-4">
+                <div class="text-right">
+                    {%if not login_flag %}
+                    <p class="mx-5 mb-5" id="intro">We change the way you see this industry
+                    </p>
+                    <a class="btn btn-outline-white btn-md" href="/login">Sign In</a><br>
+                    <a class="btn btn-outline-white btn-md" href="/reg">Register</a>
+                    {% endif %}
+                    {%if login_flag %}
+                    <p class="mx-5 mb-5" id="intro"> Your insight starts here
+                    </p>
+                    <a class="btn btn-outline-white btn-md" href="/dash">Enter Dashboard</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="card-body z-depth-1 text-left" id="slogan">
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>My adventure</strong></h4>
+                    <!-- Subtitle -->
+                    <h6 class="font-weight-bold indigo-text py-2">Photography</h6>
+                    <!-- Text -->
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem
+                        perspiciatis voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta
+                        reprehenderit, placeat laborum ut beatae ullam suscipit veniam.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</div>
+<!-- Card -->
+
+
+<script>
+    if (document.getElementById('jumb').offsetWidth >= 1000) {
+        document.getElementById('jumb').style.height = document.getElementById('jumb').offsetWidth * 0.45 + 'px';
+    }
+</script>
 {% endblock %}

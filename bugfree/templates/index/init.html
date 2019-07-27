@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ title }}</title>
-    <!--&lt;!&ndash; Font Awesome &ndash;&gt;-->
-    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">-->
-    <!-- Bootstrap core CSS -->
+    <!-- &lt;!&ndash; Font Awesome &ndash;&gt; -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{url_for('static',filename='css/mdb.min.css')}}" rel="stylesheet">
-    <!--&lt;!&ndash; Your custom styles (optional) &ndash;&gt;-->
-    <!--<link href="css/style.css" rel="stylesheet">-->
+    <link href="https://fonts.font.im/css?family=Gruppo" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
+    {% block head %}{% endblock %}
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
         <nav class="navbar fixed-top navbar-expand-lg blue-gradient navbar-dark scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#"><strong>Bugfree</strong></a>
+                <a class="navbar-brand" href="/"><strong>InfoMobile</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -33,22 +33,22 @@
                         {%if not login_flag %}
                         <li class="nav-item">
                             <a href="/login">
-                            <button type="button" class="btn btn-outline-light">Login</button></a>
+                                <button type="button" class="btn btn-outline-light">Sign In</button></a>
                         </li>
                         <li class="nav-item">
                             <a href="/reg">
-                            <button type="button" class="btn btn-outline-light">Register</button></a>
+                                <button type="button" class="btn btn-outline-light">Register</button></a>
                         </li>
                         {% endif %}
                         {% if login_flag %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Dropdown
+                                aria-haspopup="true" aria-expanded="false">Hello, {{user}}
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="/dash">Dashboard</a>
+                                <a class="dropdown-item" href="/accu">Your Account</a>
+                                <a class="dropdown-item" href="#">Log Out</a>
                             </div>
                         </li>
                         {% endif %}
@@ -58,6 +58,22 @@
         </nav>
 
     </header>
+    <br><br><br><br>{%if not login_flag %}<br>{% endif %}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <br><br><br><br>{%if not login_flag %}<br>{% endif %}
+    <!--Footer-->
+    <footer class="page-footer font-small blue fixed-bottom">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright: Team Bugfree<br>
+            <a href="/about">About Us</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!--/.Footer-->
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
@@ -68,6 +84,8 @@
     <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script>
+    <!-- Library for password encryption -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/md5.min.js')}}"></script>
 
 </body>
 
