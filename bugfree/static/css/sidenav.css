@@ -71,24 +71,17 @@
     background: #fff;
 }
 
-#sidebar ul li.active>a,
+/* #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
-}
+} */
 
 
 a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after:not(#navbarDropdownMenuLink) {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
 
 ul ul a {
     font-size: 0.9em !important;
@@ -106,8 +99,8 @@ ul.CTAs a {
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
-}
-
+} */
+/* 
 a.download {
     background: #fff;
     color: #7386D5;
