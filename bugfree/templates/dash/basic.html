@@ -7,15 +7,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ title }}</title>
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
     <link href="{{url_for('static',filename='css/mdb.min.css')}}" rel="stylesheet">
+    <link href="https://fonts.font.im/css?family=Gruppo" rel="stylesheet">
     <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
     <link href="{{url_for('static',filename='css/sidenav.css')}}" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 
 <body>
-    <div class="wrapper">
 
+    <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -74,7 +76,6 @@
 
         <!-- Page Content Holder -->
         <div id="content">
-
             <nav class="navbar sticky-top navbar-expand-md blue-gradient navbar-dark scrolling-navbar">
                 <div class="container">
                     <button type="button" id="sidebarCollapse" class="navbar-btn">
@@ -88,10 +89,9 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                            {%if not g.login_flag %}
+                            {%if not login_flag %}
                             <li class="nav-item">
                                 <a href="/login">
                                     <button type="button" class="btn btn-outline-light">Sign In</button></a>
@@ -101,11 +101,10 @@
                                     <button type="button" class="btn btn-outline-light">Register</button></a>
                             </li>
                             {% endif %}
-                            {% if g.login_flag %}
+                            {% if login_flag %}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">Hello, {{g.name}}
-                                </a>
+                                    aria-haspopup="true" aria-expanded="false">Hello, name</a>
                                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/dash">Dashboard</a>
                                     <a class="dropdown-item" href="/accu">Your Account</a>
@@ -117,6 +116,7 @@
                     </div>
                 </div>
             </nav>
+
             <div class="container">
 
                 <h2>Collapsible Sidebar Using Bootstrap 4</h2>
@@ -158,12 +158,12 @@
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.</p>
 
-
-
             </div>
+
 
         </div>
     </div>
+
     <!-- SCRIPTS -->
     <!-- JQuery -->
     <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.4.1.min.js')}}"></script>
@@ -175,6 +175,7 @@
     <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script>
     <!-- Library for password encryption -->
     <script type="text/javascript" src="{{url_for('static',filename='js/md5.min.js')}}"></script>
+    <!-- Initialize SideNav -->
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {

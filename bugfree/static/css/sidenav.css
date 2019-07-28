@@ -82,7 +82,6 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
@@ -99,8 +98,8 @@ ul.CTAs a {
     display: block;
     border-radius: 5px;
     margin-bottom: 5px;
-} */
-/* 
+}
+
 a.download {
     background: #fff;
     color: #7386D5;
@@ -132,6 +131,7 @@ a.article:hover {
     border: white;
     border-style: solid !important;
     border-width: 2px;
+    margin-left: 15px;
 }
 
 #sidebarCollapse span {
