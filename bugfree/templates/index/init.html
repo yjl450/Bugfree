@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ title }}</title>
-    <!-- &lt;!&ndash; Font Awesome &ndash;&gt; -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
     <link href="{{url_for('static',filename='css/mdb.min.css')}}" rel="stylesheet">
-    <link href="https://fonts.font.im/css?family=Gruppo" rel="stylesheet">
     <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
@@ -20,7 +16,7 @@
 
     <header>
 
-        <nav class="navbar fixed-top navbar-expand-lg blue-gradient navbar-dark scrolling-navbar">
+        <nav class="navbar fixed-top navbar-expand-md blue-gradient navbar-dark scrolling-navbar">
             <div class="container">
                 <a class="navbar-brand" href="/"><strong>InfoMobile</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

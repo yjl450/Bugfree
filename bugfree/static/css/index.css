@@ -1,39 +1,72 @@
-.navbar-brand{
-    font-family: 'Gruppo', cursive;
+@font-face {
+    font-family: 'Gruppo';
+    src: url('../font/Gruppo.ttf');
+}
+
+.navbar-brand {
+    font-family: 'Gruppo';
     font-size: xx-large;
     line-height: 80%;
     vertical-align: text-top;
     padding: 0%;
 }
 
-.jumbotron{
+.navbar-brand-centered {
+    font-family: 'Gruppo';
+    font-size: xx-large;
+    line-height: 80%;
+    vertical-align: text-top;
+    padding: 0%;
+}
+
+.jumbotron {
     margin: 0%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#intro{
+#intro {
     margin-right: 6px !important;
     margin-bottom: 24px !important;
     font-size: xx-large;
 }
 
-#bold_title, #bold_brand{
-    font-family: 'Gruppo', cursive;
+#bold_title,
+#bold_brand {
+    font-family: 'Gruppo';
 }
 
-.justify-content-between{
+.justify-content-between {
     margin-left: 24px !important
 }
 
-#danger{
+#danger {
     margin-top: 24px !important
 }
 
-#confirm_message{
+#confirm_message {
     font-weight: bolder !important;
     background: linear-gradient(330deg, #143be9 25%, #9952e0 50%, #e05252 75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
+
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 160px;
+    text-align: center;
+    /* background-color: #eee; */
+    color: white;
+}
+
+.navbar-brand-centered:hover {
+    color: white;
+}
+
+.navbar>.container .navbar-brand-centered,
+.navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+}
