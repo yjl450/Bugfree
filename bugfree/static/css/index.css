@@ -19,6 +19,21 @@
     font-size: xx-large;
 }
 
-#bold_title{
+#bold_title, #bold_brand{
     font-family: 'Gruppo', cursive;
 }
+
+.justify-content-between{
+    margin-left: 24px !important
+}
+
+#danger{
+    margin-top: 24px !important
+}
+
+#confirm_message{
+    font-weight: bolder !important;
+    background: linear-gradient(330deg, #143be9 25%, #9952e0 50%, #e05252 75%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }

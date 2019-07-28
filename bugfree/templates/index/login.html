@@ -1,13 +1,22 @@
 {% extends "index/init.html" %}
 
+{% block head %}
+{% if g.login_flag %}
+<script>
+    window.location.href = '/dash';
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <h1 id="bold_title" class="text-center">Sign In</h1>
 <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg">
-        {%if login_flag %}
+        {%if g.login_flag %}
         {% else %}
-        <form class="md-form border border-light p-5" id="login" onsubmit="return loginSubmit()">
+        <form class="md-form border border-light p-5" id="login" onsubmit="return loginSubmit()" action="#"
+            method="POST">
             <div class="md-form">
                 <input type="email" id="email" name="email" class="form-control" required>
                 <label for="email" class="font-weight-light">Your email</label>
@@ -19,25 +28,21 @@
             <input type="hidden" id="real_pwd" name="pwd" value="1">
 
             <!-- The following is for Forget Password and Session-->
-            <!-- <div class="d-flex justify-content-between">
-            <div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                    <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+
+            <div class="justify-content-between">
+                <div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="keep" id="remember">
+                        <label class="custom-control-label" for="remember">Remember me for one day</label>
+                    </div>
                 </div>
             </div>
-            <div>
-                <a href="">Forgot password?</a>
-            </div>
-        </div> -->
 
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            {% for message in messages %}
-            <p class="text-danger">{{ message }}</p>
-            {% endfor %}
-            {% else %}
-            <br>
+            {% for message in messages %}{% if message != None %}
+            <small class="form-text text-danger mb-4" id="danger">{{ message }}</small>
+            {% endif %}{% endfor %}
             {% endif %}
             {% endwith %}
             <button class="btn purple-gradient btn-info btn-block my-4" type="submit">Sign in</button>

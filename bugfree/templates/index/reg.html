@@ -1,13 +1,21 @@
 {% extends "index/init.html" %}
 
+{% block head %}
+{% if g.login_flag %}
+<script>
+    window.location.href = '/dash';
+</script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <h1 id="bold_title" class="text-center">Register</h1>
 <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg">
-        {%if login_flag %}
+        {%if g.login_flag %}
         {% else %}
-        <form class="md-form border border-light p-5" id="reg" onsubmit="regSubmit()">
+        <form class="md-form border border-light p-5" id="reg" onsubmit="regSubmit()" action="#" method="POST">
             <div class="md-form">
                 <input type="text" id="materialRegisterFormFirstName" class="form-control" name="user" required>
                 <label for="materialRegisterFormFirstName">User name</label>
@@ -34,21 +42,28 @@
             </div>
             <input hidden id="real_pwd" name="pwd" value="">
             <div class="md-form">
-                <select class="browser-default custom-select" id="select" name="question">
+                <select class="browser-default custom-select" id="select" name="question" required aria-placeholder="">
                     <option value="" disabled selected>Choose your security question</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    {% for i in range(question_list|length) %}
+                    <option value={{i}}>{{question_list[i]}}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="md-form">
+                <input type="text" id="input" class="form-control" placeholder="" name="answer" required>
                 <label for="input">Answer</label>
-                <input type="text" id="input" class="form-control" placeholder="" name="answer">
             </div>
             <small id="helper" class="form-text text-muted mb-4">Your answer will be used when resetting your
                 password</small>
-            <br>
-            <button class="btn purple-gradient btn-info btn-block my-4" type="submit" onsubmit="return regSubmit()">Sign
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}{% if message != None %}
+            <small class="form-text text-danger mb-4">{{ message }}</small>
+            {% endif %}{% endfor %}
+            {% endif %}
+            {% endwith %}
+            <button class="btn purple-gradient btn-info btn-block my-4" type="submit" onsubmit="return regSubmit()"
+                id="submit">Sign
                 Up</button>
             <div class="text-center">
                 <p>Already have an account?
@@ -68,25 +83,22 @@
         var pwd2 = document.getElementById('confirm').value;
         if (pwd1 != pwd2) {
             document.getElementById('notEqu').removeAttribute('hidden');
+            document.getElementById('submit').disabled = 'disabled';
             return false;
         }
         if (pwd1 == pwd2) {
             document.getElementById('notEqu').hidden = 'hidden';
+            document.getElementById('submit').removeAttribute('disabled');
             return true;
         }
         console.log(pwd1 != pwd2)
     }
     function regSubmit() {
-        if (isEqual() == false) {
-            console.log('false');
-            return false;
-        }
-        else {
-            console.log('hello');
-            var input_pwd = 'cdsnji' + document.getElementById('pwd').value + '1561d';
-            var hash = md5(input_pwd);
-            document.getElementById('real_pwd').value = hash;
-        }
+        var input_pwd = 'cdsnji' + document.getElementById('pwd').value + '1561d';
+        console.log(input_pwd);
+        var hash = md5(input_pwd);
+        document.getElementById('real_pwd').value = hash;
+        console.log(hash);
     }
 </script>
 {% endblock %}

@@ -1,0 +1,43 @@
+{% extends "index/init.html" %}
+
+{% block head %}
+<script>
+    {% if g.login_flag %}
+    window.location.href = '/dash';
+    {% endif %}
+</script>
+{% endblock %}
+
+{% block content %}
+<h1 id="bold_title" class="text-center">Success</h1>
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg">
+        <div class="md-card border border-light p-5">
+            <div class="card-body">
+                <h4 class="card-title text-left" id="confirm_message">You will be redirected to login page in <strong
+                        id="second_show">5</strong> seconds.</h4>
+                <p class="card-text">Dear {{user}},<br>
+                    You have successfully completed registration.<br>
+                    You can now sign in use email {{email}}.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script>
+    var timeout = 5;
+    function showError() {
+        document.getElementById("second_show").innerHTML = timeout;
+        timeout--;
+        if (timeout == 0) {
+            window.location.href = "/login";
+        } else {
+            setTimeout("showError()", 1000);
+        }
+    }
+    showError();
+</script>
+{% endblock %}

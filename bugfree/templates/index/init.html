@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ title }}</title>
     <!-- &lt;!&ndash; Font Awesome &ndash;&gt; -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
     <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="{{url_for('static',filename='css/mdb.min.css')}}" rel="stylesheet">
@@ -30,7 +30,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        {%if not login_flag %}
+                        {%if not g.login_flag %}
                         <li class="nav-item">
                             <a href="/login">
                                 <button type="button" class="btn btn-outline-light">Sign In</button></a>
@@ -40,15 +40,15 @@
                                 <button type="button" class="btn btn-outline-light">Register</button></a>
                         </li>
                         {% endif %}
-                        {% if login_flag %}
+                        {% if g.login_flag %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Hello, {{user}}
+                                aria-haspopup="true" aria-expanded="false">Hello, {{g.name}}
                             </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/dash">Dashboard</a>
                                 <a class="dropdown-item" href="/accu">Your Account</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
+                                <a class="dropdown-item" href="/logout">Log Out</a>
                             </div>
                         </li>
                         {% endif %}
@@ -58,11 +58,11 @@
         </nav>
 
     </header>
-    <br><br><br><br>{%if not login_flag %}<br>{% endif %}
+    <br><br><br><br>{%if not g.login_flag %}<br>{% endif %}
     <div class="container">
         {% block content %}{% endblock %}
     </div>
-    <br><br><br><br>{%if not login_flag %}<br>{% endif %}
+    <br><br><br><br>{%if not g.login_flag %}<br>{% endif %}
     <!--Footer-->
     <footer class="page-footer font-small blue fixed-bottom">
 
