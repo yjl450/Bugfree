@@ -16,7 +16,7 @@
 
     <header>
 
-        <nav class="navbar fixed-top navbar-expand-md blue-gradient navbar-dark scrolling-navbar">
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark blue-gradient scrolling-navbar">
             <div class="container">
                 <a class="navbar-brand" href="/"><strong>InfoMobile</strong></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -37,15 +37,17 @@
                         </li>
                         {% endif %}
                         {% if g.login_flag %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Hello, {{g.name}}
-                            </a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/dash">Dashboard</a>
-                                <a class="dropdown-item" href="/accu">Your Account</a>
-                                <a class="dropdown-item" href="/logout">Log Out</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" id="thin">Hello, {{g.name}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dash"><b>Dashboard</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/accu"><b>Your Account</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout"><b>Log Out</b></a>
                         </li>
                         {% endif %}
                     </ul>
@@ -79,7 +81,7 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script>
+    <!-- <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script> -->
     <!-- Library for password encryption -->
     <script type="text/javascript" src="{{url_for('static',filename='js/md5.min.js')}}"></script>
 
