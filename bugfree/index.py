@@ -93,7 +93,7 @@ def login():
                 session.permanent = True
             session['name'] = user[0]
             session['email'] = user[1]
-            return redirect(url_for('index.index'))
+            return redirect(url_for('dash.dash'))
         flash(error)
          
     title = 'InfoMobile - Sign In'

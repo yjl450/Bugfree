@@ -34,10 +34,17 @@
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
+    /* background: linear-gradient(-80deg, #bb56d4 0%, #e92758 100%); */
+    /* background: white; */
+    /* background: linear-gradient(-90deg, #29bdd9 0%, #276ace 100%); */
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
+    /* padding: 15px; */
+    /* border-style: solid !important; */
+    /* margin: 0 15px 0 0; */
+    /* border-image: linear-gradient(-80deg, #bb56d4 0%, #e92758 100%)1 10 1;  */
+    /* margin-color: white; */
 }
 
 #sidebar.active {
@@ -45,14 +52,20 @@
     transform: rotateY(100deg);
 }
 
+#navihead {
+
+    font-weight: 500 !important;
+}
+
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
+    padding: 20px 20px 2px 20px;
+    color: white;
+    background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%);
+    /* background: #6d7fcc; */
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -61,22 +74,34 @@
 }
 
 #sidebar ul li a {
+    margin: 10px;
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    -webkit-text-fill-color: white;
+    color: white !important;
+    background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%) !important;
+    box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25);
 }
 
-/* #sidebar ul li.active>a,
-a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-} */
+#sidebar ul li a.active {
+    -webkit-text-fill-color: white;
+    color: white !important;
+    background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%) !important;
+    box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25);
+}
 
+#sidebar ul li ul li a {
+    margin-left: 25px;
+    margin-right: 25px;
+}
 
 a[data-toggle="collapse"] {
     position: relative;
@@ -88,7 +113,15 @@ ul ul a {
     background: #6d7fcc;
 }
 
-ul.CTAs {
+a.side.dropdown-toggle::after{
+    border-top-color: #db357e;
+}
+
+/* a.dropdown-toggle::after:hover{
+    border-top-color: white;
+} */
+
+/* ul.CTAs {
     padding: 20px;
 }
 
@@ -109,7 +142,7 @@ a.article,
 a.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
-}
+} */
 
 
 /* ---------------------------------------------------
@@ -125,7 +158,7 @@ a.article:hover {
 #sidebarCollapse {
     width: 40px;
     height: 40px;
-    /* background: #345bb2; */
+    background: #345bb2;
     background: transparent;
     cursor: pointer;
     border: white;

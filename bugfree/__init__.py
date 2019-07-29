@@ -46,4 +46,9 @@ def create_app(test_config=None):
     from . import index
     app.register_blueprint(index.bp)
 
+    # Register dashboard blueprint
+    # Responsible for dashboard page and other functions.
+    from . import dash
+    app.register_blueprint(dash.bp)
+
     return app

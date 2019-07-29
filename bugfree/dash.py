@@ -17,9 +17,10 @@ bp = Blueprint('dash', __name__)
 @bp.route('/dash')
 def dash():
     """
-    :return: Navigation template
+    :return: Dashboard Page
     """
-    return """<a href="design/index">index</a>"""
+    title = 'InfoMobile - Dashboard'
+    return render_template('dash/dash.html', title=title)
 
 @bp.route('/design/index')
 def navi():

@@ -39,7 +39,7 @@
                         {% if g.login_flag %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Hello, name</a>
+                                aria-haspopup="true" aria-expanded="false">Hello, {{g.name}}</a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="/dash">Dashboard</a>
                                 <a class="dropdown-item" href="/accu">Your Account</a>
@@ -78,7 +78,7 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
-    <!-- <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script> -->
+    <script type="text/javascript" src="{{url_for('static',filename='js/mdb.min.js')}}"></script>
     <!-- Library for password encryption -->
     <script type="text/javascript" src="{{url_for('static',filename='js/md5.min.js')}}"></script>
 
