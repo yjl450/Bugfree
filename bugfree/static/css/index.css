@@ -19,7 +19,7 @@
     padding: 0%;
 }
 
-#thin{
+#thin {
     font-weight: lighter;
 }
 
@@ -72,4 +72,53 @@
 .navbar>.container .navbar-brand-centered,
 .navbar>.container-fluid .navbar-brand-centered {
     margin-left: -80px;
+}
+
+.navbtn {
+    background: rgba(255, 255, 255, 0.164);
+}
+
+@media screen and (max-width:620px) {
+    .navbar-brand-centered.show {
+        animation: fade 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 1;
+            /* visibility: hidden; */
+        }
+
+        to {
+            pointer-events: none;
+            opacity: 0;
+            /* visibility: hidden; */
+        }
+    }
+
+    .navbar-brand-centered {
+        animation: appear 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes appear {
+        from {
+            pointer-events: none;
+            opacity: 0;
+            /* visibility: hidden; */
+        }
+
+        to {
+            opacity: 1;
+            /* visibility: hidden; */
+        }
+    }
+
+}
+
+@media screen and (min-width: 400px) and (max-width: 767px){
+    .navbar .dropdown-menu{
+        position: static !important
+    }
 }

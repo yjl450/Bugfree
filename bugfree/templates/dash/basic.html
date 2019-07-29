@@ -102,17 +102,14 @@
                             </li>
                             {% endif %}
                             {% if login_flag %}
-                            <li class="nav-item">
-                                <a class="nav-link disabled" id="thin">Hello, {{g.name}}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/dash"><b>Dashboard</b></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/accu"><b>Your Account</b></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout"><b>Log Out</b></a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Hello, name</a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="/dash">Dashboard</a>
+                                    <a class="dropdown-item" href="/accu">Your Account</a>
+                                    <a class="dropdown-item" href="/logout">Log Out</a>
+                                </div>
                             </li>
                             {% endif %}
                         </ul>
@@ -184,6 +181,7 @@
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
                 $(this).toggleClass('active');
+                $('.navbar-brand-centered').toggleClass('show');
             });
         });
     </script>
