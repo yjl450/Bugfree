@@ -10,7 +10,8 @@
 
 from flask import Blueprint, flash, g, redirect, render_template, request, session, url_for
 import pymysql
-# from bugfree.db import get_db, get_cursor
+import tushare
+from bugfree.db import get_db, get_cursor
 
 bp = Blueprint('dash', __name__)
 
