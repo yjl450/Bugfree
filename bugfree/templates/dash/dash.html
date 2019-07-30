@@ -3,3 +3,11 @@
 {% block content %}
 <span>test</span>
 {% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('#dash').addClass('active');
+        $('#dash').addClass('shadow');
+    });
+</script>
+{% endblock %}

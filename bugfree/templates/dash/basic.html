@@ -96,7 +96,7 @@
             </nav>
 
             <div class="container">
-            {% block content %}{% endblock %}
+                {% block content %}{% endblock %}
             </div>
 
 
@@ -136,7 +136,11 @@
 
             },
             function () {
-                $(this).removeClass('shadow');
+                if ($(this).hasClass('active')) {
+                }
+                else {
+                    $(this).removeClass('shadow');
+                }
             }
         );
     </script>
@@ -179,6 +183,7 @@
             scrollToTop();
         }
     </script>
+    {% block script %}{% endblock %}
 </body>
 
 </html>

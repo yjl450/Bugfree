@@ -88,14 +88,14 @@
     -webkit-text-fill-color: white;
     color: white !important;
     background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%) !important;
-    box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25);
+    /* box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25); */
 }
 
 #sidebar ul li a.active {
     -webkit-text-fill-color: white;
     color: white !important;
     background: linear-gradient(-90deg, #bb56d4 0%, #e92758 100%) !important;
-    box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25);
+    /* box-shadow: 2px 5px 24px 7px rgba(0,0,0,0.25); */
 }
 
 #sidebar ul li ul li a {
