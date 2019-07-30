@@ -7,7 +7,6 @@
 import os
 from flask import Flask, session
 from datetime import timedelta
-from app import app
 
 
 def create_app(test_config=None):
