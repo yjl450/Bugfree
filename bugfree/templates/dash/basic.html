@@ -13,6 +13,11 @@
     <link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet">
     <link href="{{url_for('static',filename='css/sidenav.css')}}" rel="stylesheet">
     {% block head %}{% endblock %}
+    {% if not g.login_flag %}
+    <script>
+        window.location.href = '/login';
+    </script>
+    {% endif %}
 </head>
 
 <body>
