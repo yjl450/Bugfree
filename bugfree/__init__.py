@@ -21,7 +21,7 @@ def create_app(test_config=None):
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
         app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
-
+        
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
@@ -52,9 +52,3 @@ def create_app(test_config=None):
     app.register_blueprint(dash.bp)
 
     return app
-
-
-if __name__ == "__main__":
-    app.run()
-else:
-    application = create_app()
